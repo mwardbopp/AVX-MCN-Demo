@@ -14,7 +14,7 @@ module "spoke_aws_1" {
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
-module "spoke_aws_1" {
+module "spoke_aws_2" {
   source  = "terraform-aviatrix-modules/aws-spoke/aviatrix"
   version = "4.0.3"
 
