@@ -1,7 +1,8 @@
 # AWS Spoke Modules
-module "aws_spoke_1" {
-  source          = "terraform-aviatrix-modules/aws-spoke/aviatrix"
-  version         = "4.0.1"
+module "spoke_aws_1" {
+  source  = "terraform-aviatrix-modules/aws-spoke/aviatrix"
+  version = "4.0.3"
+
   account         = var.aws_account_name
   region          = var.aws_spoke1_region
   name            = var.aws_spoke1_name
@@ -13,9 +14,10 @@ module "aws_spoke_1" {
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
-module "aws_spoke_2" {
-  source          = "terraform-aviatrix-modules/aws-spoke/aviatrix"
-  version         = "4.0.1"
+module "spoke_aws_1" {
+  source  = "terraform-aviatrix-modules/aws-spoke/aviatrix"
+  version = "4.0.3"
+
   account         = var.aws_account_name
   region          = var.aws_spoke2_region
   name            = var.aws_spoke2_name
@@ -28,9 +30,11 @@ module "aws_spoke_2" {
 }
 
 # AWS Transit Modules
-module "aws_transit_1" {
-  source              = "terraform-aviatrix-modules/aws-transit/aviatrix"
-  version             = "4.0.1"
+
+module "transit_aws_1" {
+  source  = "terraform-aviatrix-modules/aws-transit/aviatrix"
+  version = "v4.0.3"
+
   account             = var.aws_account_name
   region              = var.aws_transit1_region
   name                = var.aws_transit1_name
@@ -39,3 +43,5 @@ module "aws_transit_1" {
   prefix              = false
   instance_size       = var.aws_transit_instance_size
 }
+
+
