@@ -4,7 +4,7 @@ terraform {
     hostname = "app.terraform.io"
     organization = "paulaviatrix_iac"
     workspaces {
-      name = "ace-iac-day-zero"
+      name = "22020226_Lab"
     }
   }
 }
