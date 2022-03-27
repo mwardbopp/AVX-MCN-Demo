@@ -13,7 +13,7 @@ variable "aws_account_name" {
 }
 
 variable "mc_transit_region" {
-  default = "us-east-2"
+  default = "eu-central-1"
 }
 
 variable "mc_transit_name" {
@@ -39,7 +39,7 @@ variable "aws_spoke_instance_size" {
 }
 
 variable "aws_spoke1_region" {
-  default = "us-east-2"
+  default = "eu-central-1"
 }
 
 variable "aws_spoke1_name" {
@@ -51,7 +51,7 @@ variable "aws_spoke1_cidr" {
 }
 
 variable "aws_spoke2_region" {
-  default = "us-east-2"
+  default = "eu-central-1"
 }
 
 variable "aws_spoke2_name" {
