@@ -36,8 +36,8 @@ module "mc_transit" {
   version = "v1.1.1"
 
   cloud                  = "AWS"
-  cidr                   = var.mc_transit.cidr
-  region                 = var.mc_transit.region
+  cidr                   = var.mc_transit_cidr
+  region                 = var.mc_transit_region
   account                = var.aws_account_name
   enable_transit_firenet = true
 }
