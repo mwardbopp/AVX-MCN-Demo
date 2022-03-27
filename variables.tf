@@ -12,21 +12,27 @@ variable "controller_ip" {
 variable "aws_account_name" {
 }
 
+variable "mc_transit_region" {
+  default = "us-east-2"
+}
+
+variable "mc_transit_name" {
+  default = "avx-trns1"
+}
+
+variable "mc_transit_cidr" {
+  default = "10.21.0.0/16"
+}
+
+
+
+
+
+
 variable "aws_transit_instance_size" {
   default = "t3.micro"
 }
 
-variable "aws_transit1_region" {
-  default = "us-east-2"
-}
-
-variable "aws_transit1_name" {
-  default = "avx-trns1"
-}
-
-variable "aws_transit1_cidr" {
-  default = "10.21.0.0/16"
-}
 
 variable "aws_spoke_instance_size" {
   default = "t3.micro"
