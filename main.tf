@@ -10,7 +10,7 @@ module "spoke_aws_1" {
   cidr            = var.aws_spoke1_cidr
   instance_size   = var.aws_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "mc_transit"
+  transit_gw      = "avx-trns1"
 }
 
 module "spoke_aws_2" {
@@ -24,7 +24,7 @@ module "spoke_aws_2" {
   cidr            = var.aws_spoke2_cidr
   instance_size   = var.aws_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "mc_transit"
+  transit_gw      = "avx-trns1"
 }
 
   
