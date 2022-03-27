@@ -33,7 +33,7 @@ module "spoke_aws_2" {
 
 module "mc_transit" {
   source  = "terraform-aviatrix-modules/mc-transit/aviatrix"
-  version = "v2.0.0"
+  version = "v1.1.1"
 
   cloud                  = "AWS"
   cidr                   = var.mc_transit.cidr
