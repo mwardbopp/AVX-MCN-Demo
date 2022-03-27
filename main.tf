@@ -43,7 +43,7 @@ module "mc_transit" {
 }
 
 module "firenet_1" {
-  source  = "https://github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-firenet"
+  source  = "github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-firenet"
 #  version = "1.0.0"
 
   transit_module = module.mc_transit
