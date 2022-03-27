@@ -39,17 +39,6 @@ module "mc_transit" {
   cidr                   = var.mc_transit_cidr
   region                 = var.mc_transit_region
   account                = var.aws_account_name
-  enable_transit_firenet = true
-}
-
-module "firenet_1" {
-  source  = "github.com/terraform-aviatrix-modules/terraform-aviatrix-mc-firenet"
-#  version = "1.0.0"
-
-  transit_module = module.mc_transit
-  firewall_image = "Palo Alto Networks VM-Series Next-Generation Firewall Bundle 1"
-  depends_on = [
-    mc_transit.cloud
-  ]
+  enable_transit_firenet = flase
 }
 
