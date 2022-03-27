@@ -48,5 +48,8 @@ module "firenet_1" {
 
   transit_module = module.mc_transit
   firewall_image = "Palo Alto Networks VM-Series Next-Generation Firewall Bundle 1"
+  depends_on = [
+    mc_transit.cloud
+  ]
 }
 
