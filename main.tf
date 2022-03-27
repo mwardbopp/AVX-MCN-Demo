@@ -35,7 +35,7 @@ module "mc_transit" {
   source  = "terraform-aviatrix-modules/mc-transit/aviatrix"
   version = "v1.1.1"
 
-  cloud                  = "AWS"
+  cloud                  = "aws"
   cidr                   = var.mc_transit_cidr
   region                 = var.mc_transit_region
   account                = var.aws_account_name
