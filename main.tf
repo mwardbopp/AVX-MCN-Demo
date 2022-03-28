@@ -2,7 +2,7 @@
 
 module "spoke_aws_1" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.1.1"
+  version = "1.1.0"
   cloud           = "AWS"
   account         = var.aws_account_name
   region          = var.aws_spoke1_region
@@ -15,7 +15,7 @@ module "spoke_aws_1" {
 
 module "spoke_aws_2" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.1.1"
+  version = "1.1.0"
 
   cloud           = "AWS"
   account         = var.aws_account_name
