@@ -2,7 +2,7 @@
 
 module "spoke_aws_1" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.1.0"
+  version = "1.6.2"
   cloud           = "AWS"
   account         = var.aws_account_name
   region          = var.aws_spoke1_region
@@ -15,7 +15,7 @@ module "spoke_aws_1" {
 
 module "spoke_aws_2" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.1.0"
+  version = "1.6.2"
 
   cloud           = "AWS"
   account         = var.aws_account_name
@@ -33,12 +33,12 @@ module "spoke_aws_2" {
 
 module "mc_transit" {
   source  = "terraform-aviatrix-modules/mc-transit/aviatrix"
-  version = "v1.1.1"
+  version = "v2.5.1"
 
   cloud                  = "AWS"
   cidr                   = var.mc_transit_cidr
   region                 = var.mc_transit_region
   account                = var.aws_account_name
-  enable_transit_firenet = true
+  enable_transit_firenet = false
 }
 
