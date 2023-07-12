@@ -68,5 +68,5 @@ variable "aws_test_instance_size" {
 
 variable "ha_enabled" {
   type    = bool
-  default = false
+  default = true
 }
