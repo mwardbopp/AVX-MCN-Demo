@@ -6,10 +6,12 @@ variable "password" {
 }
 
 variable "controller_ip" {
+  default = "18.198.44.55"
 }
 
 
 variable "aws_account_name" {
+  default = "AWS_Paul"
 }
 
 variable "mc_transit_region" {
