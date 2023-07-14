@@ -1,20 +1,27 @@
 transit1:
-  transit_ha_gw: true
-  transit_asn: 65113
+  transit_ha_gw: false
+  transit_asn: 65301
   transit_cidr: 10.1.0.0/23
   transit_cloud: aws
   transit_region_name: eu-central-1
 
 transit2:
   transit_ha_gw: false
-  transit_asn: 65103
-  transit_cidr: 10.1.4.0/23
+  transit_asn: 65302
+  transit_cidr: 10.1.2.0/23
   transit_cloud: azure
   transit_region_name: West Europe
 
+transit3:
+  transit_ha_gw: false
+  transit_asn: 65303
+  transit_cidr: 10.1.4.0/23
+  transit_cloud: azure
+  transit_region_name: UK South
+
 transit4:
   transit_ha_gw: false
-  transit_asn: 65104
+  transit_asn: 65304
   transit_cidr: 10.1.6.0/23
   transit_cloud: gcp
   transit_region_name: europe-west1
