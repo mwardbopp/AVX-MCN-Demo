@@ -1,3 +1,12 @@
+
+
+################################
+###
+### GLOBAL VARIABLES
+###
+################################
+
+
 variable "username" {
   default = "admin"
 }
@@ -10,29 +19,32 @@ variable "controller_ip" {
 }
 
 
+################################
+###
+### CSP ACCOUNTS
+###
+################################
+
+
 variable "aws_account_name" {
   default = "AWS_Paul"
 }
 
-
-
-variable "mc_transit_region" {
-  default = "eu-central-1"
+variable "az_account_name" {
+  default = "Azure_Paul_New"
 }
 
-variable "mc_transit_name" {
-  default = "avx-trns1"
-}
-
-variable "mc_transit_cidr" {
-  default = "10.21.0.0/16"
+variable "gcp_account_name" {
+  default = "GCP_Paul"
 }
 
 
 
-variable "aws_transit_instance_size" {
-  default = "t3.micro"
-}
+################################
+###
+### GLOBAL SPOKE VARIABLES
+###
+################################
 
 
 
@@ -45,10 +57,14 @@ variable "ha_enabled" {
 
 
 
+################################
+###
+### AWS SPOKES
+###
+################################
 
 
 
-# AWS SPOKES
 
 variable "aws_spoke_instance_size" {
   default = "t3.micro"
@@ -59,11 +75,11 @@ variable "aws_spoke1_region" {
 }
 
 variable "aws_spoke1_name" {
-  default = "ace-iac-spoke1"
+  default = "aws-spoke1"
 }
 
 variable "aws_spoke1_cidr" {
-  default = "10.1.0.0/16"
+  default = "10.101.0.0/16"
 }
 
 variable "aws_spoke2_region" {
@@ -71,16 +87,21 @@ variable "aws_spoke2_region" {
 }
 
 variable "aws_spoke2_name" {
-  default = "ace-iac-spoke2"
+  default = "aws-spoke2"
 }
 
 variable "aws_spoke2_cidr" {
-  default = "10.2.0.0/16"
+  default = "10.102.0.0/16"
 }
 
 
 
-# AZURE SPOKES
+################################
+###
+### AZURE SPOKES
+###
+################################
+
 
 variable "az_spoke_instance_size" {
   default = "Standard_B1ms"
@@ -112,8 +133,14 @@ variable "az_spoke2_cidr" {
 
 
 
+################################
+###
+### GCP SPOKES
+###
+################################
 
-# GCP SPOKES
+
+
 
 variable "gcp_spoke_instance_size" {
   default = "n1-standard-1"
@@ -146,7 +173,46 @@ variable "gcp_spoke2_cidr" {
 
 
 
+
+################################
+###
+### LEGACY STUFF
+###
+################################
+
+
+
 variable "aws_test_instance_size" {
   default = "t2.micro"
 }
 
+
+
+variable "mc_transit_region" {
+  default = "eu-central-1"
+}
+
+variable "mc_transit_name" {
+  default = "avx-trns1"
+}
+
+variable "mc_transit_cidr" {
+  default = "10.21.0.0/16"
+}
+
+
+
+variable "aws_transit_instance_size" {
+  default = "t3.micro"
+}
+
+
+# variable "admin_password" {
+#   type = string
+# }
+
+# variable "app10_tags" {
+#   description = "vm tags"
+#   type        = map(string)
+#   default     = null
+# }

@@ -3,3 +3,7 @@ provider "aviatrix" {
   username      = var.username
   password      = var.password
 }
+
+provider "azurerm" {
+  features {}
+}
