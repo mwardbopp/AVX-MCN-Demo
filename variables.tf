@@ -344,7 +344,7 @@ variable "tunnel_cidr" {
 variable "aviatrix_asn" {
   description = "ASN To be used on Aviatrix Transit Gateway for BGP"
   type        = string
-  default     = "65301"
+  default     = "65302"
 }
 
 variable "sdwan_asn" {

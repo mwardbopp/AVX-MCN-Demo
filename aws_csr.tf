@@ -247,9 +247,9 @@ resource "aws_eip_association" "eip_headend_1_eth1" {
 #Aviatrix VPN Tunnels
 resource "aviatrix_transit_external_device_conn" "sdwan" {
   count                     = var.aviatrix_tunnel_creation ? 1 : 0
-  vpc_id                    = module.framework.transit["transit1"].transit_gateway.vpc_id
+  vpc_id                    = module.framework.transit["transit2"].transit_gateway.vpc_id
   connection_name           = "SDWAN-${var.region}"
-  gw_name                   = module.framework.transit["transit1"].transit_gateway.gw_name
+  gw_name                   = module.framework.transit["transit2"].transit_gateway.gw_name
   connection_type           = "bgp"
   ha_enabled                = var.ha_gw
   bgp_local_as_num          = var.aviatrix_asn
