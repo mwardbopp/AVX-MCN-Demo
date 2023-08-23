@@ -264,3 +264,5 @@
 #   #backup_local_tunnel_cidr  = var.ha_gw ? "${local.gw2_tunnel1_avx_ip}/${local.tunnel_masklength},${local.gw2_tunnel2_avx_ip}/${local.tunnel_masklength}" : null
 #   #backup_remote_tunnel_cidr = var.ha_gw ? "${local.gw2_tunnel1_sdwan_ip}/${local.tunnel_masklength},${local.gw2_tunnel2_sdwan_ip}/${local.tunnel_masklength}" : null
 # }
+
+# update
