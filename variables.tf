@@ -14,7 +14,7 @@
 
 
 variable "username" {
-  default = "admin"
+  default = "terraform"
 }
 
 variable "password" {
@@ -160,6 +160,19 @@ variable "az_spoke2_name" {
 variable "az_spoke2_cidr" {
   default = "10.111.0.0/16"
 }
+
+
+# variable "az_spoke3_region" {
+#   default = "UK South"
+# }
+
+# variable "az_spoke3_name" {
+#   default = "az-r3-spoke1"
+# }
+
+# variable "az_spoke3_cidr" {
+#   default = "10.112.0.0/16"
+# }
 
 ################################################################################################################################################################
 ################################################################################################################################################################
