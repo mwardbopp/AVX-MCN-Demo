@@ -19,7 +19,9 @@ module "spoke_aws_1" {
   cidr            = var.aws_spoke1_cidr
   instance_size   = var.aws_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-eu-central-1-transit"
+  # attached        = false  
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-aws-transit-r1"
 }
 
 module "spoke_aws_2" {
@@ -33,7 +35,9 @@ module "spoke_aws_2" {
   cidr            = var.aws_spoke2_cidr
   instance_size   = var.aws_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-eu-central-1-transit"
+  # attached        = false
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-aws-transit-r1"
 }
 
 
@@ -57,7 +61,9 @@ module "spoke_az_1" {
   cidr            = var.az_spoke1_cidr
   instance_size   = var.az_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-west-europe-transit"
+  # attached        = false
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-az-transit-r1"
 }
 
 module "spoke_az_2" {
@@ -71,7 +77,9 @@ module "spoke_az_2" {
   cidr            = var.az_spoke2_cidr
   instance_size   = var.az_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-uk-south-transit"
+  # attached        = false  
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-az-transit-r2"
 }
 
 # module "spoke_az_3" {
@@ -85,7 +93,8 @@ module "spoke_az_2" {
 #   cidr            = var.az_spoke3_cidr
 #   instance_size   = var.az_spoke_instance_size
 #   ha_gw           = var.ha_enabled
-#   transit_gw      = "avx-uk-south-transit"
+#  
+  # transit_gw      ="mcn-az-transit-r2
 # }
 
 
@@ -109,7 +118,9 @@ module "spoke_gcp_1" {
   cidr            = var.gcp_spoke1_cidr
   instance_size   = var.gcp_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-europe-west1-transit"
+  # attached        = false  
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-gcp-transit-r1"
 }
 
 module "spoke_gcp_2" {
@@ -123,5 +134,7 @@ module "spoke_gcp_2" {
   cidr            = var.gcp_spoke2_cidr
   instance_size   = var.gcp_spoke_instance_size
   ha_gw           = var.ha_enabled
-  transit_gw      = "avx-europe-west1-transit"
+  # attached        = false 
+  depends_on      = [module.framework.transit]
+  transit_gw      = "mcn-gcp-transit-r1"
 }

@@ -1,4 +1,5 @@
 transit1:
+  transit_name: mcn-aws-transit-r1
   transit_ha_gw: false
   transit_asn: 65301
   transit_cidr: 10.1.0.0/23
@@ -6,6 +7,7 @@ transit1:
   transit_region_name: eu-central-1
 
 transit2:
+  transit_name: mcn-az-transit-r1
   transit_ha_gw: false
   transit_asn: 65302
   transit_cidr: 10.1.2.0/23
@@ -13,6 +15,7 @@ transit2:
   transit_region_name: West Europe
 
 transit3:
+  transit_name: mcn-az-transit-r2
   transit_ha_gw: false
   transit_asn: 65303
   transit_cidr: 10.1.4.0/23
@@ -20,6 +23,7 @@ transit3:
   transit_region_name: UK South
 
 transit4:
+  transit_name: mcn-gcp-transit-r1
   transit_ha_gw: false
   transit_asn: 65304
   transit_cidr: 10.1.6.0/23

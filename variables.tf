@@ -21,7 +21,11 @@ variable "password" {
 }
 
 variable "controller_ip" {
-  default = "18.198.44.55"
+  default = "controller.wardbopp.com"
+}
+
+variable "aws_linux_ami_search_name" {
+  
 }
 
 ################################################################################################################################################################
@@ -29,6 +33,228 @@ variable "controller_ip" {
 ################################################################################################################################################################
 ################################################################################################################################################################
 ################################################################################################################################################################
+
+
+# Gatus variable  
+
+
+variable "aws_non_prod_eng_ip" {
+  description = "Private IP address for the EC2 instance in the non-production environment."
+  type        = string
+  default     = "10.101.0.41" # Replace with your desired default value
+}
+
+variable "az_non_prod_ip" {
+  description = "IP address for AZURE Non-Prod"
+  type        = string
+  default     = "10.110.0.20"  # Replace with the actual IP
+}
+
+variable "az_prod_ip" {
+  description = "IP address for AZURE Prod"
+  type        = string
+  default     = "10.111.0.20"  # Replace with the actual IP
+}
+
+variable "aws_prod_man_ip" {
+  description = "IP address for AWS Prod"
+  type        = string
+  default     = "10.102.0.42"  # Replace with the actual IP
+}
+
+variable "gcp_prod_shared_ip" {
+  description = "IP address for GCP Prod Shared"
+  type        = string
+  default     = "10.120.0.3"   # Replace with the actual IP
+}
+
+variable "on_prem_ip" {
+  description = "IP address for On-Prem"
+  type        = string
+  default     = "192.168.100.1"  # Replace with the actual IP
+}
+
+variable "docker_image" {
+  description = "Docker image for Gatus"
+  type        = string
+  default     = "twinproduction/gatus"  # Replace with the actual image name
+}
+
+variable "docker_port_mapping" {
+  description = "Port mapping for Docker container"
+  type        = string
+  default     = "80:8080"  # Replace with the desired port mapping
+}
+
+variable "config_yaml_path" {
+  description = "Path to the Gatus config.yaml file"
+  type        = string
+  default     = "/opt/config.yaml"  # Replace with the desired path
+}
+
+variable "gatus_header_aws_nonprod_eng" {
+  type        = string
+  default     = "AWS VM2 - (NONPROD)ENG - FRANKFURT"  
+}
+variable "gatus_header_aws_prod_man" {
+  type        = string
+  default     = "AWS VM1 - (PROD) MAN - FRANKFURT"  
+}
+variable "gatus_header_az_nonprod_man" {
+  type        = string
+  default     = "AZURE VM2 - (NON PROD) - MAN - WEST EUROPE" 
+}
+variable "gatus_header_az_prod_eng" {
+  type        = string
+  default     = "AZURE VM1 - (PROD) ENG UK SOUTH"
+}
+variable "gatus_header_gcp_shared" {
+  type        = string
+  default     = "GCP VM1 - (PROD) SHARED - BELGIUM"
+}
+
+
+
+# variable "gatus_config" {
+#   description = "Gatus configuration YAML content"
+#   type        = string
+#   default     = <<EOL
+# header: "AWS VM2 - (NONPROD)ENG - FRANKFURT"
+# endpoints:
+#   - name: ICMP
+#     url: "icmp://${var.az_non_prod_ip}"
+#     group: NONPROD Manufacturing - AZURE
+#     interval: 5s
+#     conditions:
+#       - "[CONNECTED] == true"
+#   - name: HTTP
+#     url: "http://${var.az_non_prod_ip}"
+#     interval: 5s
+#     group: NONPROD Manufacturing - AZURE
+#     conditions:
+#       - "[STATUS] == 200"
+#   - name: ICMP
+#     url: "icmp://${var.az_prod_ip}"
+#     group: PROD Engineering - AZURE
+#     interval: 5s
+#     conditions:
+#       - "[CONNECTED] == true"
+#   - name: HTTP
+#     url: "http://${var.az_prod_ip}"
+#     interval: 5s
+#     group: PROD Engineering - AZURE
+#     conditions:
+#       - "[STATUS] == 200"
+#   - name: ICMP
+#     url: "icmp://${var.aws_prod_man_ip}"
+#     group: PROD Manufacturing - AWS
+#     interval: 5s
+#     conditions:
+#       - "[CONNECTED] == true"
+#   - name: HTTP
+#     url: "http://${var.aws_prod_man_ip}"
+#     interval: 5s
+#     group: PROD Manufacturing - AWS
+#     conditions:
+#       - "[STATUS] == 200"
+#   - name: ICMP
+#     url: "icmp://${var.gcp_prod_shared_ip}"
+#     group: PROD SHARED - GCP
+#     interval: 5s
+#     conditions:
+#       - "[CONNECTED] == true"
+#   - name: HTTP
+#     url: "http://${var.gcp_prod_shared_ip}"
+#     interval: 5s
+#     group: PROD SHARED - GCP
+#     conditions:
+#       - "[STATUS] == 200"
+#   - name: ICMP
+#     url: "icmp://${var.on_prem_ip}"
+#     group: ONPREM
+#     interval: 5s
+#     conditions:
+#       - "[CONNECTED] == true"
+# EOL
+# }
+
+# azure gatus 
+
+# variables.tfvars
+variable "resource_group_location" {
+  description = "The location of the Azure resource group."
+  type        = string
+  default     = "UK South"
+}
+
+variable "network_interface_name" {
+  description = "The name of the network interface for the VM."
+  type        = string
+  default     = "gatus-nic"
+}
+
+variable "network_interface_location" {
+  description = "The location of the network interface."
+  type        = string
+  default     = "UK South"
+}
+
+variable "network_interface_subnet_id" {
+  description = "The subnet ID for the network interface."
+  type        = string
+  default     = "/subscriptions/subscription_id/resourceGroups/resource_group_name/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name"
+}
+
+variable "admin_username" {
+  description = "The username for the VM administrator."
+  type        = string
+  default     = "adminuser"
+}
+
+variable "admin_password" {
+  description = "The password for the VM administrator."
+  type        = string
+  default     = "Password1234!" # You can replace this with your actual password or use SSH keys instead
+}
+
+variable "azureuser" {
+  description = "The password for the VM administrator."
+  type        = string
+  default     = "Password1234!" # You can replace this with your actual password or use SSH keys instead
+}
+
+variable "vm_name" {
+  description = "The name of the virtual machine."
+  type        = string
+  default     = "az-uk-south-prod-eng"
+}
+
+variable "storage_account_name" {
+  description = "The name of the Azure storage account."
+  type        = string
+  default     = "mystorageaccount"
+}
+
+variable "storage_account_type" {
+  description = "The type of Azure storage account."
+  type        = string
+  default     = "Standard_LRS"
+}
+
+variable "boot_diagnostics_storage_account_name" {
+  description = "The name of the storage account for boot diagnostics."
+  type        = string
+  default     = "bootdiagnosticsstorage"
+}
+
+variable "os_disk_name" {
+  description = "The name of the OS disk for the virtual machine."
+  type        = string
+  default     = "exampleosdisk"
+}
+
+
+
 
 
 ################################
@@ -162,17 +388,17 @@ variable "az_spoke2_cidr" {
 }
 
 
-# variable "az_spoke3_region" {
-#   default = "UK South"
-# }
+variable "az_spoke3_region" {
+  default = "UK South"
+}
 
-# variable "az_spoke3_name" {
-#   default = "az-r3-spoke1"
-# }
+variable "az_spoke3_name" {
+  default = "az-r3-spoke1"
+}
 
-# variable "az_spoke3_cidr" {
-#   default = "10.112.0.0/16"
-# }
+variable "az_spoke3_cidr" {
+  default = "10.112.0.0/16"
+}
 
 ################################################################################################################################################################
 ################################################################################################################################################################
@@ -241,23 +467,6 @@ variable "aws_test_instance_size" {
 
 
 
-variable "mc_transit_region" {
-  default = "eu-central-1"
-}
-
-variable "mc_transit_name" {
-  default = "avx-trns1"
-}
-
-variable "mc_transit_cidr" {
-  default = "10.21.0.0/16"
-}
-
-
-
-variable "aws_transit_instance_size" {
-  default = "t3.micro"
-}
 
 
 # variable "admin_password" {
@@ -421,3 +630,5 @@ variable "aws_transit_instance_size" {
 #   sdwan_ha_subnet_cidr = var.use_existing_vpc ? var.sdwan_ha_subnet_cidr : aws_subnet.sdwan_2[0].cidr_block
 #   ami                  = length(regexall("vedge", lower(var.image_type))) > 0 ? data.aws_ami.vedge.id : data.aws_ami.csr.id
 # }
+
+
