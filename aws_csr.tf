@@ -136,7 +136,7 @@ locals {
 
 #SDWAN Headend 1
 resource "aws_instance" "headend_1" {
-  ami                         = "ami-0c11bed50cac948f8"
+  ami                         = data.aws_ami.csr
   instance_type               = var.instance_size
   subnet_id                   = aws_subnet.sdwan_1[0].id
   associate_public_ip_address = true
