@@ -26,9 +26,9 @@ resource "aws_security_group_rule" "ingress_vpc" {
 resource "aws_security_group_rule" "ingress_from_myIP" {
   type              = "ingress"
   from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
-  cidr_blocks       = ["188.141.0.172/32"]
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.gatus_server_sg.id
 }
 
@@ -59,9 +59,9 @@ resource "aws_security_group_rule" "ingress_vpc_2" {
 resource "aws_security_group_rule" "ingress_from_myIP_2" {
   type              = "ingress"
   from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
-  cidr_blocks       = ["188.141.0.172/32"]
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.gatus_server_sg_2.id
 }
 

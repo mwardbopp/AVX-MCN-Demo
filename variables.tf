@@ -593,42 +593,126 @@ variable "aws_test_instance_size" {
 #   default     = ""
 # }
 
-# variable "sdwan_gw_subnet_cidr" {
-#   description = "Subnet CIDR, for using an existing VPC. Required when use_existing_vpc is true"
-#   type        = string
-#   default     = ""
-# }
+variable "sdwan_gw_subnet_cidr" {
+  description = "Subnet CIDR, for using an existing VPC. Required when use_existing_vpc is true"
+  type        = string
+  default     = ""
+}
 
-# variable "sdwan_ha_subnet_cidr" {
-#   description = "Subnet CIDR, for using an existing VPC. Required when use_existing_vpc is true and ha_gw is true"
-#   type        = string
-#   default     = ""
-# }
+variable "sdwan_ha_subnet_cidr" {
+  description = "Subnet CIDR, for using an existing VPC. Required when use_existing_vpc is true and ha_gw is true"
+  type        = string
+  default     = ""
+}
 
-# variable "sdwan_gw_subnet_id" {
-#   description = "Subnet ID, for using an existing VPC. Required when use_existing_vpc is true"
-#   type        = string
-#   default     = ""
-# }
+variable "sdwan_gw_subnet_id" {
+  description = "Subnet ID, for using an existing VPC. Required when use_existing_vpc is true"
+  type        = string
+  default     = ""
+}
 
-# variable "sdwan_ha_subnet_id" {
-#   description = "Subnet ID, for using an existing VPC. Required when use_existing_vpc is true and ha_gw is true"
-#   type        = string
-#   default     = ""
-# }
+variable "sdwan_ha_subnet_id" {
+  description = "Subnet ID, for using an existing VPC. Required when use_existing_vpc is true and ha_gw is true"
+  type        = string
+  default     = ""
+}
 
-# variable "second_interface" {
-#   description = "The additional interface on the SDWAN headend"
-#   type        = bool
-#   default     = false
+locals {
+  sdwan_gw_subnet_id   = var.use_existing_vpc ? var.sdwan_gw_subnet_id : aws_subnet.sdwan_1[0].id
+  sdwan_ha_subnet_id   = var.use_existing_vpc ? var.sdwan_ha_subnet_id : aws_subnet.sdwan_2[0].id
+  sdwan_gw_subnet_cidr = var.use_existing_vpc ? var.sdwan_gw_subnet_cidr : aws_subnet.sdwan_1[0].cidr_block
+  sdwan_ha_subnet_cidr = var.use_existing_vpc ? var.sdwan_ha_subnet_cidr : aws_subnet.sdwan_2[0].cidr_block
+  # ami                  = length(regexall("vedge", lower(var.image_type))) > 0 ? data.aws_ami.vedge.id : data.aws_ami.csr.id
+}
 
-# }
-# locals {
-#   sdwan_gw_subnet_id   = var.use_existing_vpc ? var.sdwan_gw_subnet_id : aws_subnet.sdwan_1[0].id
-#   sdwan_ha_subnet_id   = var.use_existing_vpc ? var.sdwan_ha_subnet_id : aws_subnet.sdwan_2[0].id
-#   sdwan_gw_subnet_cidr = var.use_existing_vpc ? var.sdwan_gw_subnet_cidr : aws_subnet.sdwan_1[0].cidr_block
-#   sdwan_ha_subnet_cidr = var.use_existing_vpc ? var.sdwan_ha_subnet_cidr : aws_subnet.sdwan_2[0].cidr_block
-#   ami                  = length(regexall("vedge", lower(var.image_type))) > 0 ? data.aws_ami.vedge.id : data.aws_ami.csr.id
-# }
+
+# Define variables
+variable "use_existing_vpc" {
+  description = "Flag to indicate whether to use an existing VPC"
+  type        = bool
+  default     = false
+}
+
+variable "cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "eu-central-1"
+}
+
+variable "az1" {
+  description = "Availability Zone 1"
+  type        = string
+  default     = "a"
+}
+
+variable "az2" {
+  description = "Availability Zone 2"
+  type        = string
+  default     = "b"
+}
+
+variable "name" {
+  description = "Name for resources"
+  type        = string
+  default     = ""
+}
+
+variable "tunnel_cidr" {
+  description = "CIDR block for VPN tunnels"
+  type        = string
+  default     = "192.168.0.0/24"
+}
+
+variable "instance_size" {
+  description = "Instance size for SDWAN Headend"
+  type        = string
+  default     = "t2.medium"
+}
+
+variable "second_interface" {
+  description = "Flag to indicate whether to create a second network interface for SDWAN Headend"
+  type        = bool
+  default     = false
+}
+
+variable "ha_gw" {
+  description = "Flag to indicate whether to create a high-availability SDWAN Headend"
+  type        = bool
+  default     = true
+}
+
+variable "aviatrix_tunnel_creation" {
+  description = "Flag to indicate whether to create Aviatrix VPN tunnels"
+  type        = bool
+  default     = true
+}
+
+variable "aviatrix_asn" {
+  description = "AS number for Aviatrix VPN"
+  type        = number
+  default     = 65302
+}
+
+variable "sdwan_asn" {
+  description = "AS number for SDWAN"
+  type        = number
+  default     = 65001
+}
+
+variable "vpc_id" {
+  type        = string
+  default = "value"
+}
+
+
+# Add any additional variables as needed
+
+
 
 
